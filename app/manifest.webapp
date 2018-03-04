@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "name": "openmrs-owa-platformui",
+  "description": "A very simple UI for the OpenMRS Platform to give access to the Addon Manager, User Manager, and other tools.",
+  "launch_path": "index.html",
+  "icons": {
+    "48": "/img/omrs-button.png"
+  },
+  "developer": {
+    "name": "charpell",
+    "url": "https://github.com/openmrs/openmrs-owa-platformui.git"
+  },
+  "default_locale": "en",
+    "activities": {
+      "openmrs": {
+        "href": "*"
+      }
+    }
+}
