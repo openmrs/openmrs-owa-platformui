@@ -9,7 +9,7 @@
 import React from 'react';
 import openmrsLogo from '../../../img/gsoc-omrs.png';
 
-const LoginForm = ({ onSubmit, onChange, username, password, sessionLocation }) => {
+const LoginForm = ({ onSubmit, onChange, username, password }) => {
   return (
     <div className="row">
       <div className="col-lg-10">

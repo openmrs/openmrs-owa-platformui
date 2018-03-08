@@ -1,4 +1,4 @@
-node_modules
+overagenode_modules
 bower_components
 dist
 config.json
@@ -6,3 +6,6 @@ config.json
 openmrs-owa-platformui.zip
 webpack.config.js
 package-lock.json
+.vscode
+coverage
+node_modules/
