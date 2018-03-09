@@ -9,3 +9,4 @@ package-lock.json
 .vscode
 coverage
 node_modules/
+*.zip

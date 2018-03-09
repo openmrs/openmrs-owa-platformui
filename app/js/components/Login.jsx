@@ -31,7 +31,7 @@ class Login extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const { username, password, sessionLocation } = this.state;
+    const { username, password } = this.state;
     
     hashHistory.push('/home')
   }
