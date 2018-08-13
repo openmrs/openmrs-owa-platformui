@@ -4,5 +4,6 @@ module.exports = {
       "<rootDir>/__tests__/__mocks__/fileMock.js"
   },
   testPathIgnorePatterns: ["<rootDir>/__tests__/__mocks__/fileMock.js"],
-  testURL: 'http://localhost'
+  testURL: 'http://localhost',
+  'setupTestFrameworkScriptFile': './setupTests.js',
 }
