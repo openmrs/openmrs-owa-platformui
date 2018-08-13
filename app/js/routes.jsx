@@ -10,13 +10,13 @@ import React from 'react'
 import { Router, Route, hashHistory } from 'react-router';
 import App from './components/App'
 
-import Home from './components/Home'
+import Login from './components/Login';
 
 export default () => {
   return (
     <Router history={hashHistory}>
       <Route path="/" component={App} />
-      <Route path="/home" component={Home} />
+      <Route path="/login" component={Login} />
     </Router>
   );
 }
