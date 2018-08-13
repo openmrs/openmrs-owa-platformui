@@ -7,16 +7,16 @@
  * graphic logo is a trademark of OpenMRS Inc.
  */
 import React from 'react'
-import { Router, Route, hashHistory } from 'react-router';
-import App from './components/App'
+import { Route, Switch } from 'react-router-dom';
+import App from './components/App';
 
 import Login from './components/Login';
 
 export default () => {
   return (
-    <Router history={hashHistory}>
-      <Route path="/" component={App} />
+    <Switch>
+      <Route exact path="/" component={App} />
       <Route path="/login" component={Login} />
-    </Router>
+    </Switch>
   );
 }

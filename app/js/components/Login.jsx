@@ -7,7 +7,6 @@
  * graphic logo is a trademark of OpenMRS Inc.
  */
 import React from 'react';
-import { hashHistory } from 'react-router';
 
 import LoginForm from './presentational/LoginForm'
 
@@ -32,8 +31,6 @@ class Login extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const { username, password } = this.state;
-    
-    hashHistory.push('/home')
   }
 
   render() {

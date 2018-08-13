@@ -8,12 +8,12 @@
  */
 import React from 'react';
 import {render} from 'react-dom';
-import {Router, Route, hashHistory} from 'react-router'
+import { HashRouter } from 'react-router-dom'
 
 import routes from './routes'
 
 render((
-         <Router history={hashHistory}>
+         <HashRouter>
            {routes()}
-         </Router>
+         </HashRouter>
        ), document.getElementById('app'));

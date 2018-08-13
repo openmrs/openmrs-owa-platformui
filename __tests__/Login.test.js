@@ -9,7 +9,7 @@
 import React, { Component } from 'react';
 import { mount } from 'enzyme';
 import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15.4';
+import Adapter from 'enzyme-adapter-react-16';
 
 import Login from '../app/js/components/Login';
 import LoginForm from '../app/js/components/presentational/LoginForm'
