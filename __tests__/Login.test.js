@@ -25,9 +25,11 @@ const event = {
 describe('Login Component', () => {
   let wrapper,
       form;
-
+  const history = {
+    push: jest.fn()
+  }
   beforeEach(() => {
-    wrapper = mount(<Login />);
+    wrapper = mount(<Login history={history} />);
     form = wrapper.find('form');
   })
 
