@@ -7,7 +7,7 @@
  * graphic logo is a trademark of OpenMRS Inc.
  */
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import openmrsLogo from '../../img/openmrs-with-title-small.png';
 import loadingGif from '../../img/loading.gif'
