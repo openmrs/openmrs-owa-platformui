@@ -11,44 +11,55 @@ import openmrsLogo from '../../../img/gsoc-omrs.png';
 
 const LoginForm = ({ onSubmit, onChange, username, password }) => {
   return (
-    <div className="row">
-      <div className="col-lg-10">
-        <form className="login-form" onSubmit={onSubmit}>
-          <h4 className="login-header">Welcome</h4>
-          <div className="logo-container">
-            <img className="logo-img" src={(openmrsLogo)} alt="Add On Manager home page" />
-          </div>
-          <div className="form-group">
-            <input
-              className="form-control"
-              name="username"
-              onChange={onChange}
-              value={username}
-              required
-            />
-            <label className="control-label" htmlFor="input">Username</label>
-            <i className="bar"></i>
-          </div>
-          <div className="form-group">
-            <input
-              className="form-control"
-              name="password"
-              type="password"
-              onChange={onChange}
-              value={password}
-              required
-            />
-            <label className="control-label" htmlFor="input">Password</label>
-            <i className="bar"></i>
-          </div>
-
-          <div className="form-group">
-            <button type="submit" className="login-button btn btn-lg btn-outline-success">Login</button>
-          </div>
-          <div className="forgot-password">Forgot <a className="forgot-password-link">Username / Password?</a></div>
-        </form>
+    <form className="login-form" onSubmit={onSubmit}>
+      <h5 className="text-center">OpenMRS Platform</h5>
+      <div className="logo-container">
+        <img
+          className="logo-img"
+          src={openmrsLogo}
+          alt="Add On Manager home page"
+        />
       </div>
-    </div>
+      <div className="form-group">
+        <input
+          className="form-control"
+          name="username"
+          onChange={onChange}
+          value={username}
+          required
+        />
+        <label className="control-label" htmlFor="input">
+          Username
+        </label>
+        <i className="bar" />
+      </div>
+      <div className="form-group">
+        <input
+          className="form-control"
+          name="password"
+          type="password"
+          onChange={onChange}
+          value={password}
+          required
+        />
+        <label className="control-label" htmlFor="input">
+          Password
+        </label>
+        <i className="bar" />
+      </div>
+      <div className="form-group">
+        <button type="submit" className="btn btn-lg btn-block btn-success">
+          Sign In
+        </button>
+      </div>
+      <div className="forgot-password">
+        <small>
+          <a href="#" className="btn forgot-password-link">
+            Forgot Password?
+          </a>
+        </small>
+      </div>
+    </form>
   )
 }
 

@@ -31,16 +31,27 @@ class Login extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const { username, password } = this.state;
+    this.props.history.push("/")
   }
 
   render() {
     return (
-      <LoginForm
-        onSubmit={this.handleSubmit} 
-        onChange={this.handleChange}
-        username={this.state.username}
-        password={this.state.password}
-      />
+      <div className="section">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="form-card">
+              <div className="col-md-6" id="sign-in-col">
+                <LoginForm
+                  onSubmit={this.handleSubmit}
+                  onChange={this.handleChange}
+                  username={this.state.username}
+                  password={this.state.password}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     )
   }
 }
