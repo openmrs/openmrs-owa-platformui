@@ -23,7 +23,18 @@ const event = {
 
 
 describe('Login Component', () => {
-  const wrapper = mount(<Login />);
+  let wrapper,
+      form;
+
+  beforeEach(() => {
+    wrapper = mount(<Login />);
+    form = wrapper.find('form');
+  })
+
+  afterEach(() => {
+    wrapper.unmount();
+  })
+  
 
   it('should have an empty initial state as the component ', () => {
     expect(wrapper.state().username).toEqual('');
@@ -34,22 +45,33 @@ describe('Login Component', () => {
     expect(wrapper.find(LoginForm)).toHaveLength(1);
   });
 
-  it('should render its children', () => {
-    expect(wrapper.find('div').length).toBe(7);
-    expect(wrapper.find('form').length).toBe(1);
-    expect(wrapper.find('h4').length).toBe(1);
-    expect(wrapper.find('label').length).toBe(2);
-    expect(wrapper.find('input').length).toBe(2);
-    expect(wrapper.find('button').length).toBe(1);
+  it('should call handleSubmit when login form is submitted', () => {
+    const spy = jest.spyOn(wrapper.instance(), 'handleSubmit');
+    wrapper.instance().forceUpdate();
+    form.simulate('submit');
+    expect(spy).toBeCalled();
+  });
 
+  it('should call handleChange on login form input change', () => {
+    const spy = jest.spyOn(wrapper.instance(), 'handleChange');
+    wrapper.instance().forceUpdate()
+    form.find("input[name='username']").simulate('change', {
+      target: {
+        value: "testUsername"
+      }
+    });
+    expect(spy).toBeCalled();
   })
 
-
-  it('should call loginUser action', () => {
-    const form = wrapper.find('form');
-    const hadleSubmit = jest.spyOn(wrapper.instance(), 'handleSubmit');
-    wrapper.instance().handleSubmit(event);
-    expect(hadleSubmit).toBeCalled();
+  it('handleChange method should update state on form input change', () => {
+    form.find("input[name='username']").simulate('change', {
+      target: {
+        name:'username',
+        value: 'testUsername'
+      }
+    });
+    console.log(wrapper.state())
+    expect(wrapper.state().username).toBe('testUsername');
   });
 
 });
