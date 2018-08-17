@@ -1,0 +1,22 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "react/jsx-filename-extension": 0,
+    "no-undef": 0,
+    "camelcase":"off",
+    "jsx-a11y/label-has-for":0,
+    "react/jsx-closing-tag-location":0,
+    "import/no-named-as-default":0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "react/forbid-prop-types": 0,
+    "class-methods-use-this": "off",
+    "jsx-a11y/click-events-have-key-events": 0,
+    "compilerOptions": { "target": "ES6", "module": "commonjs" }
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import"
+  ]
+}
