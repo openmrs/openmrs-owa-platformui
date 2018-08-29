@@ -10,7 +10,7 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom';
 import App from './components/App';
 
-import Login from './components/Login';
+import Login from './components/login/Login';
 
 export default () => {
   return (

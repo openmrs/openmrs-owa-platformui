@@ -10,8 +10,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import MockAdapter from 'axios-mock-adapter';
 import axiosInstance from '../app/js/config/axiosInstance';
-import Login from '../app/js/components/Login';
-import LoginForm from '../app/js/components/presentational/LoginForm';
+import Login from '../app/js/components/login/Login';
+import LoginForm from '../app/js/components/login/LoginForm';
 
 describe('Login Component', () => {
   let wrapper;
