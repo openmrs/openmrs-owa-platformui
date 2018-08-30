@@ -9,8 +9,9 @@
 import React, { Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { css } from 'glamor';
-import axiosInstance from '../config/axiosInstance';
-import LoginForm from './presentational/LoginForm';
+import axiosInstance from '../../config/axiosInstance';
+
+import LoginForm from './LoginForm';
 
 class Login extends Component {
   constructor(props) {
