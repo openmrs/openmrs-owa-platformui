@@ -8,9 +8,13 @@
  */
 import React from 'react';
 import Dashboard from './Dashboard';
+import Header from './header/Header';
 
 const App = () => (
+  <div>
+    <Header />
     <Dashboard />
+  </div>
 );
 
 export default App;
