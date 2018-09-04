@@ -160,6 +160,18 @@ describe('Login Component', () => {
       wrapper.instance().handleResponse(response);
       expect(spy).toHaveBeenCalledTimes(0);
     });
+    it('should route to redirect url if redirect URL exists in query string', () => {
+      window.history.pushState({}, 'Test Title', '/testurl.html?redirect=http://localhost/redirecturl.html');
+      const response = {
+        data: {
+          authenticated: true,
+        },
+      };
+      window.location.assign = jest.fn();
+
+      wrapper.instance().handleResponse(response);
+      expect(window.location.assign).toBeCalledWith('http://localhost/redirecturl.html');
+    });
   });
 
   describe('handleChange method', () => {
