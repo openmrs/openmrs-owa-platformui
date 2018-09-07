@@ -8,77 +8,87 @@
  */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import Loader from 'react-loader';
 
-export default () => {
+const Dashboard = ({ authenticated }) => {
   const openmrsServer = window.location.pathname.split('/')[1];
   const addonManagerLink = `http://localhost:8080/${openmrsServer}/owa/addonmanager/index.html`;
 
   return (
     <div id="body-wrapper">
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <h4 className="status-header">
-              OpenMRS platform is running
-              <i className="fa fa-check-circle float-right" />
-              <span />
-            </h4>
+      <Loader loaded={authenticated}>
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <h4 className="status-header">
+                OpenMRS platform is running
+                <i className="fa fa-check-circle float-right" />
+                <span />
+              </h4>
 
-            <ul className="platform-ul">
-              <div>
-                <li className="platform-list">
-                  <Link
-                    to={addonManagerLink}
-                    className="platform-item-link"
-                  >
-                    <div className="jumbotron">
-                      <h4>
-                        Addon Manager
-                      </h4>
-                      <p>
-                        The Addon Manager open web app, is an OpenMRS tool used to
-                        manage the uploading,installation, upgrading, deleting and
-                        viewing of OpenMRS addons.
-                      </p>
-                    </div>
-                  </Link>
-                </li>
-                <hr />
-              </div>
-              <div>
-                <li className="platform-list">
-                  <a
-                    href="https://wiki.openmrs.org/x/d4aIBQ"
-                    className="platform-item-link"
-                  >
-                    <div className="jumbotron">
-                      <h4>User Manager</h4>
-                      <p>
-                        To learn more about the User Interface Modules, click here for details about
-                        installing them
-                      </p>
-                    </div>
-                  </a>
-                </li>
-                <hr />
-              </div>
-              <div>
-                <li className="platform-list">
-                  <a
-                    href="https://wiki.openmrs.org/x/P4IaAQ"
-                    className="platform-item-link"
-                  >
-                    <div className="jumbotron light">
-                      <h4>REST Documentation</h4>
-                      <p>If you are a developer, you can access the REST API here</p>
-                    </div>
-                  </a>
-                </li>
-              </div>
-            </ul>
+              <ul className="platform-ul">
+                <div>
+                  <li className="platform-list">
+                    <Link
+                      to={addonManagerLink}
+                      className="platform-item-link"
+                    >
+                      <div className="jumbotron">
+                        <h4>
+                          Addon Manager
+                        </h4>
+                        <p>
+                          The Addon Manager open web app, is an OpenMRS tool used to
+                          manage the uploading,installation, upgrading, deleting and
+                          viewing of OpenMRS addons.
+                        </p>
+                      </div>
+                    </Link>
+                  </li>
+                  <hr />
+                </div>
+                <div>
+                  <li className="platform-list">
+                    <a
+                      href="https://wiki.openmrs.org/x/d4aIBQ"
+                      className="platform-item-link"
+                    >
+                      <div className="jumbotron">
+                        <h4>User Manager</h4>
+                        <p>
+                          To learn more about the User Interface Modules, click here for details about
+                          installing them
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <hr />
+                </div>
+                <div>
+                  <li className="platform-list">
+                    <a
+                      href="https://wiki.openmrs.org/x/P4IaAQ"
+                      className="platform-item-link"
+                    >
+                      <div className="jumbotron light">
+                        <h4>REST Documentation</h4>
+                        <p>If you are a developer, you can access the REST API here</p>
+                      </div>
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
+      </Loader>
     </div>
   );
 };
+
+Dashboard.propTypes = {
+  authenticated: PropTypes.bool.isRequired,
+};
+
+export default Dashboard;
