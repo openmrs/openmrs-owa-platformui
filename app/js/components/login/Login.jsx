@@ -71,8 +71,13 @@ class Login extends Component {
       loaded: true,
       formSubmitted: false,
     });
+    const redirectUrl = window.location.href.split('redirect=')[1] || null;
     if (response.data.authenticated) {
-      this.props.history.push('/');
+      if (redirectUrl) {
+        window.location.assign(redirectUrl);
+      } else {
+        this.props.history.push('/');
+      }
     } else if (response.data.authenticated === false && formSubmitted) {
       this.toastError('Incorrect username or password');
     }
