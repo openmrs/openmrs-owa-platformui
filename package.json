@@ -9,8 +9,10 @@
   "dependencies": {
     "axios": "^0.18.0",
     "axios-mock-adapter": "^1.15.0",
+    "babel-eslint": "^9.0.0",
     "glamor": "^2.20.40",
     "react": "^16.4.2",
+    "react-loader": "^2.4.5",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-toastify": "^3.4.3"

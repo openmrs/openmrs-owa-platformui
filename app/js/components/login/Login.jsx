@@ -7,9 +7,11 @@
  * graphic logo is a trademark of OpenMRS Inc.
  */
 import React, { Component } from 'react';
+import Loader from 'react-loader';
 import { ToastContainer, toast } from 'react-toastify';
 import { css } from 'glamor';
 import axiosInstance from '../../config/axiosInstance';
+import getLoginStatus from '../../helpers/authHelper';
 
 import LoginForm from './LoginForm';
 
@@ -19,8 +21,18 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
+      loaded: false,
+      formSubmitted: false,
     };
   }
+
+  componentDidMount() {
+    this.checkAuthentication();
+  }
+
+  checkAuthentication = () => getLoginStatus('/session')
+    .then(response => this.handleResponse(response))
+    .catch(error => this.handleError(error));
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
@@ -32,6 +44,7 @@ class Login extends Component {
     if (!username.trim() || !password.trim()) {
       this.toastError('Please fill all form fields');
     } else {
+      this.setState({ formSubmitted: true });
       const buffer = new Buffer(`${username}:${password}`).toString('base64');
       const auth = `Basic ${buffer}`;
       this.authenticateUser('/session', auth)
@@ -53,9 +66,16 @@ class Login extends Component {
   )
 
   handleResponse = (response) => {
-    response.data.authenticated
-      ? this.props.history.push('/')
-      : this.toastError('Incorrect username or password');
+    const { formSubmitted } = this.state;
+    this.setState({
+      loaded: true,
+      formSubmitted: false,
+    });
+    if (response.data.authenticated) {
+      this.props.history.push('/');
+    } else if (response.data.authenticated === false && formSubmitted) {
+      this.toastError('Incorrect username or password');
+    }
   }
 
   handleError = (error) => {
@@ -74,22 +94,24 @@ class Login extends Component {
   }
 
   render() {
-    const { username, password } = this.state;
+    const { username, password, loaded } = this.state;
     return (
       <div className="section">
         <ToastContainer />
         <div className="container">
           <div className="row justify-content-center">
-            <div className="form-card">
-              <div className="col-md-6" id="sign-in-col">
-                <LoginForm
-                  onSubmit={this.handleSubmit}
-                  onChange={this.handleChange}
-                  username={username}
-                  password={password}
-                />
+            <Loader loaded={loaded}>
+              <div className="form-card">
+                <div className="col-md-6" id="sign-in-col">
+                  <LoginForm
+                    onSubmit={this.handleSubmit}
+                    onChange={this.handleChange}
+                    username={username}
+                    password={password}
+                  />
+                </div>
               </div>
-            </div>
+            </Loader>
           </div>
         </div>
       </div>

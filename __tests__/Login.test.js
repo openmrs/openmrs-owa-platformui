@@ -23,7 +23,13 @@ describe('Login Component', () => {
   };
   const mock = new MockAdapter(axiosInstance);
   beforeEach(() => {
+    mock.onGet('/session').reply(200, {
+      authenticated: true,
+    });
     wrapper = mount(<Login history={history} />);
+    wrapper.setState({
+      loaded: true,
+    });
     form = wrapper.find('form');
   });
 
@@ -52,6 +58,17 @@ describe('Login Component', () => {
     wrapper.instance().forceUpdate();
     form.simulate('submit');
     expect(spy).toBeCalled();
+  });
+
+  describe('checkAuthentication method', () => {
+    it('should call handleError method when the API call returns an error response', async () => {
+      mock.onGet('/session').reply(400, {
+        error: { message: 'Bad request' },
+      });
+      const spy = createSpy('handleError');
+      await wrapper.instance().checkAuthentication();
+      expect(spy).toBeCalled();
+    });
   });
 
   describe('handleSubmit method', () => {
@@ -121,6 +138,9 @@ describe('Login Component', () => {
 
     it('should call toastError if user authentication fails', () => {
       const spy = createSpy('toastError');
+      wrapper.setState({
+        formSubmitted: true,
+      });
       const response = {
         data: {
           authenticated: false,
@@ -128,6 +148,17 @@ describe('Login Component', () => {
       };
       wrapper.instance().handleResponse(response);
       expect(spy).toBeCalled();
+    });
+
+    it('should not call toastError method if form is not submitted and API responds with authenticated false', () => {
+      const spy = createSpy('toastError');
+      const response = {
+        data: {
+          authenticated: false,
+        },
+      };
+      wrapper.instance().handleResponse(response);
+      expect(spy).toHaveBeenCalledTimes(0);
     });
   });
 
