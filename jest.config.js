@@ -5,6 +5,6 @@ module.exports = {
   },
   testPathIgnorePatterns: ['<rootDir>/__tests__/__mocks__/fileMock.js'],
   testURL: 'http://localhost',
-  'setupTestFrameworkScriptFile': './setupTests.js',
+  setupTestFrameworkScriptFile: './setupTests.js',
   collectCoverageFrom: ['**/app/**/*.js', '**/app/**/*.jsx'],
-}
+};
