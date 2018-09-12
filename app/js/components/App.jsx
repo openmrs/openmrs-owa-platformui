@@ -8,7 +8,7 @@
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import Dashboard from './Dashboard';
 import Header from './header/Header';
 import axiosInstance from '../config/axiosInstance';
@@ -69,7 +69,6 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        <ToastContainer />
         <Dashboard authenticated={authenticated} />
       </div>
     );
