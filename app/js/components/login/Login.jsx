@@ -8,7 +8,7 @@
  */
 import React, { Component } from 'react';
 import Loader from 'react-loader';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { css } from 'glamor';
 import axiosInstance from '../../config/axiosInstance';
 import getLoginStatus from '../../helpers/authHelper';
@@ -102,7 +102,6 @@ class Login extends Component {
     const { username, password, loaded } = this.state;
     return (
       <div className="section">
-        <ToastContainer />
         <div className="container">
           <div className="row justify-content-center">
             <Loader loaded={loaded}>
