@@ -1,4 +1,4 @@
-/* * This Source Code Form is subject to the terms of the Mozilla Public License,
+/** This Source Code Form is subject to the terms of the Mozilla Public License,
  * v. 2.0. If a copy of the MPL was not distributed with this file, You can
  * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
  * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
@@ -7,13 +7,9 @@
  * graphic logo is a trademark of OpenMRS Inc.
  */
 import React from 'react';
-import {render} from 'react-dom';
-import { HashRouter } from 'react-router-dom'
+import { render } from 'react-dom';
+import { HashRouter } from 'react-router-dom';
 
-import routes from './routes'
+import routes from './routes';
 
-render((
-         <HashRouter>
-           {routes()}
-         </HashRouter>
-       ), document.getElementById('app'));
+render(<HashRouter>{routes()}</HashRouter>, document.getElementById('app'));
