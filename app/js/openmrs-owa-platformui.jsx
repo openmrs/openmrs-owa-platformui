@@ -12,4 +12,7 @@ import { HashRouter } from 'react-router-dom';
 
 import routes from './routes';
 
-render(<HashRouter>{routes()}</HashRouter>, document.getElementById('app'));
+render(
+  <HashRouter>{routes()}</HashRouter>,
+  document.getElementById('app') || document.createElement('div'),
+);
