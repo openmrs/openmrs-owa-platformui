@@ -12,8 +12,9 @@ import PropTypes from 'prop-types';
 import Loader from 'react-loader';
 
 const Dashboard = ({ authenticated }) => {
+  const { origin } = window.location;
   const openmrsServer = window.location.pathname.split('/')[1];
-  const addonManagerLink = `http://localhost:8080/${openmrsServer}/owa/addonmanager/index.html`;
+  const addonManagerLink = `${origin}/${openmrsServer}/owa/addonmanager/index.html`;
 
   return (
     <div id="body-wrapper">
@@ -30,8 +31,8 @@ const Dashboard = ({ authenticated }) => {
               <ul className="platform-ul">
                 <div>
                   <li className="platform-list">
-                    <Link
-                      to={addonManagerLink}
+                    <a
+                      href={addonManagerLink}
                       className="platform-item-link"
                     >
                       <div className="jumbotron">
@@ -44,7 +45,7 @@ const Dashboard = ({ authenticated }) => {
                           viewing of OpenMRS addons.
                         </p>
                       </div>
-                    </Link>
+                    </a>
                   </li>
                   <hr />
                 </div>
