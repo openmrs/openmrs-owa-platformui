@@ -6,23 +6,21 @@
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
  */
-import React from 'react'
+
+import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import { Route, Switch } from 'react-router-dom';
 import App from './components/App';
-
 import Login from './components/login/Login';
 
 const { Fragment } = React;
 
-export default () => {
-  return (
-    <Fragment>
-      <ToastContainer />
-      <Switch>
-        <Route exact path="/" component={App} />
-        <Route path="/login" component={Login} />
-      </Switch>
-    </Fragment>
-  );
-};
+export default () => (
+  <Fragment>
+    <ToastContainer />
+    <Switch>
+      <Route exact path="/" component={App} />
+      <Route path="/login" component={Login} />
+    </Switch>
+  </Fragment>
+);
