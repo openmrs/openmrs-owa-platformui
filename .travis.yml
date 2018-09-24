@@ -8,4 +8,4 @@ script:
   - npm install coveralls
   - npm test -- -u --coverage
 after_success:
-  - npm run coverage
+  - npm run coveralls
