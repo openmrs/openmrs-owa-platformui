@@ -49,9 +49,7 @@ export default class App extends Component {
   handleError = (error) => {
     if (error.response) {
       this.toastError(error.response.data.error.message);
-      setTimeout(() => {
-        this.props.history.push('/login');
-      }, 3000);
+      this.props.history.push('/login');
     } else {
       this.toastError('Oops, something went wrong. Contact the system adminstrator');
     }
