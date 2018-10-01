@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/openmrs/openmrs-owa-platformui.svg?branch=master)](https://travis-ci.org/openmrs/openmrs-owa-platformui)
 
+[![Coverage Status](https://coveralls.io/repos/github/openmrs/openmrs-owa-platformui/badge.svg)](https://coveralls.io/github/openmrs/openmrs-owa-platformui)
+
 
 A very simple UI for the OpenMRS Platform to give access to the Addon Manager, User Manager, and other tools.
 
