@@ -1,7 +1,6 @@
 # openmrs-owa-platformui
 
 [![Build Status](https://travis-ci.org/openmrs/openmrs-owa-platformui.svg?branch=master)](https://travis-ci.org/openmrs/openmrs-owa-platformui)
-
 [![Coverage Status](https://coveralls.io/repos/github/openmrs/openmrs-owa-platformui/badge.svg)](https://coveralls.io/github/openmrs/openmrs-owa-platformui)
 
 
@@ -24,13 +23,15 @@ $ git clone https://github.com/openmrs/openmrs-owa-platformui.git
 $ npm install
 ```
 
-3. Set up a webpack.config file that points to your server instance
+3. Update the webpack.config file
+- Set `LOCAL_OWA_FOLDER` to point to your owa directory in the openmrs installation on your machine. For example
+  On a linux machine, use `/Users/{username}/openmrs/{server}/owa/`
 
-4. Created the zipped file of the application build using:
+4. Create the zipped file of the application build using:
 ```
 $ npm run build
 ```
-5. Upload the zipped file using the OpenMRS instance GUI or run `npm run build:deploy` if the output folder path is set correctly in the webpack.config file set up.
+5. Upload the zipped file using the OpenMRS instance GUI or run `npm run build:deploy` if the output folder path is set correctly in the webpack.config file as stated in in step 3.
 
 6. Start the application by double clicking `openmrs-owa-platformui` application among the available installed OpenMRS Open Web Applications.
 
